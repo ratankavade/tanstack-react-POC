@@ -1,54 +1,38 @@
-# TanStack + React + TS
+# TanStack React POC
 
-In this POC I have used TanStack Query, TanStack Route and TanStack Table along with React 19 and Tailwind css
+This is a proof-of-concept React application showcasing the power of **TanStack** libraries — including **TanStack Table**, **TanStack Query**, and **TanStack Router** — along with **TypeScript** and **Tailwind CSS**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Paginated character table using **TanStack Table**
+- API data fetching with caching using **TanStack Query**
+- Routing with **TanStack Router** (including nested and dynamic routes)
+- State persistence via URL (e.g., `?page=3`)
+- Detail page for characters using dynamic route and query
+- UI styled with **Tailwind CSS**
+- Type-safe data handling with **TypeScript**
+- Refresh button avoids unnecessary API calls with caching logic
 
-## Expanding the ESLint configuration
+## Screenshots
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Technologies Used
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React + Vite
+- TypeScript
+- TanStack Query (React Query)
+- TanStack Table
+- TanStack Router
+- Tailwind CSS
+- Axios
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Setup Instructions
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### 1. Clone the repo
+
+bash
+git clone [https://github.com/yourusername/tanstack-react-poc.git](https://github.com/ratankavade/tanstack-react-POC/tree/develop)
+cd tanstack-react-poc
+npm install
+npm run dev
+
