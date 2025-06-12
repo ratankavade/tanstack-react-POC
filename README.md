@@ -1,6 +1,6 @@
 # TanStack React POC
 
-This is a proof-of-concept React application showcasing the power of **TanStack** libraries — including **TanStack Table**, **TanStack Query**, and **TanStack Router** — along with **TypeScript** and **Tailwind CSS**.
+This is a proof-of-concept React application showcasing the power of **TanStack** libraries including **TanStack Table**, **TanStack Query**, and **TanStack Router** along with **TypeScript** and **Tailwind CSS**.
 
 ## Features
 
