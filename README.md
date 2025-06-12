@@ -1,6 +1,6 @@
-# React + TypeScript + Vite
+# TanStack + React + TS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+In this POC I have used TanStack Query, TanStack Route and TanStack Table along with React 19 and Tailwind css
 
 Currently, two official plugins are available:
 
