@@ -31,7 +31,7 @@ This is a proof-of-concept React application showcasing the power of **TanStack*
 ### 1. Clone the repo
 
 ```bash
-git clone [https://github.com/yourusername/tanstack-react-poc.git](https://github.com/ratankavade/tanstack-react-POC/tree/develop)
+git clone https://github.com/ratankavade/tanstack-react-POC/tree/develop
 cd tanstack-react-poc
 npm install
 npm run dev
