@@ -14,6 +14,13 @@ This is a proof-of-concept React application showcasing the power of **TanStack*
 - Refresh button avoids unnecessary API calls with caching logic
 
 ## Screenshots
+![home](https://github.com/user-attachments/assets/f57c5635-dfdd-482d-83e8-c699395539bf)
+
+![characterListTable](https://github.com/user-attachments/assets/d3becf2f-da89-42a6-827b-403e9e8608dc)
+
+![characterListTablePagination](https://github.com/user-attachments/assets/0a3dcbda-3d20-4748-91d8-70637cc3293a)
+
+![characterDetails](https://github.com/user-attachments/assets/f44ea336-bfec-4de2-9eb5-604a2c2d2815)
 
 
 ## Technologies Used
