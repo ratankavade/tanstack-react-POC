@@ -1,13 +1,12 @@
 import { Link } from '@tanstack/react-router'
+import React from 'react'
 
-export function CharacterDetails({ data, page }: any) {
-
-    console.log("data", data)
+function CharacterDetails({ data }: any) {
 
   return (
     <>
-        <Link to="/characters" search={{ page }} className='float-right'>
-            <button className='bg-green-700 p-4 py-3 border-green-700 rounded text-l font-bold text-white hover:bg-green-800 cursor-pointer'>Back to page {page}</button>
+        <Link to="/" className='float-right'>
+            <button className='bg-green-700 p-4 py-3 border-green-700 rounded text-l font-bold text-white hover:bg-green-800 cursor-pointer'>Back to Home</button>
         </Link>
 
         <div className="grid grid-flow-col grid-rows-5 gap-4 text-left">
@@ -24,3 +23,5 @@ export function CharacterDetails({ data, page }: any) {
     </>
   )
 }
+
+export default React.memo(CharacterDetails)

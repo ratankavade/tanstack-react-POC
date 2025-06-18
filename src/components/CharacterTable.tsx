@@ -6,28 +6,11 @@ import {
   } from '@tanstack/react-table'
 import { Route } from '../routes/characters/index' 
 import { Link } from '@tanstack/react-router'
-  
-  type Character = {
-    id: number;
-    image: string;
-    name: string;
-    gender: string;
-    species: string;
-    location: {name: string};
-    created: string;
-    origin: {name: string}
-    status: string;
-  }
-  
-  type Props = {
-    data: Character[]
-    totalPages: number
-    refetch: any
-  }
+import React from 'react';
+import type { Character, Table_Props } from '../types/interfaces';
 
-  export function CharacterTable({ data, totalPages, refetch }: Props) {
+function CharacterTable({ data, totalPages, refetch, page }: Table_Props) {
 
-    const { page } = Route.useSearch()
     const navigate = Route.useNavigate()
 
     const columns: ColumnDef<Character>[] = [
@@ -36,8 +19,8 @@ import { Link } from '@tanstack/react-router'
         header: 'Avatar',
         cell: ({ row }) => (
           <img
-            src={row.original.image}
-            alt={row.original.name}
+            src={row?.original?.image}
+            alt={row?.original?.name}
             className="w-12 h-12 rounded-full object-cover"
           />
         ),
@@ -48,8 +31,8 @@ import { Link } from '@tanstack/react-router'
         cell: ({ row }) => (
           <Link
             to="/characters/$characterId"
-            params={{ characterId: String(row.original.id) }}
-            search={{ page }} // 👈 pass current page to detail route
+            params={{ characterId: String(row?.original?.id) }}
+            search={{ page }} 
             className='font-medium text-blue-600 whitespace-nowrap dark:text-white'
           >
             {row.original.name}
@@ -61,13 +44,13 @@ import { Link } from '@tanstack/react-router'
       { 
         accessorKey: 'location', 
         header: 'Location',
-        cell: ({ row }) => row.original.location?.name
+        cell: ({ row }) => row?.original?.location?.name
       },
       { accessorKey: 'created', header: 'Created On' },
       { 
         accessorKey: 'origin',
         header: 'Origin',
-        cell: ({ row }) => row.original.origin?.name
+        cell: ({ row }) => row?.original?.origin?.name
       },
       { accessorKey: 'status', header: 'Status' },
     ]
@@ -134,18 +117,17 @@ import { Link } from '@tanstack/react-router'
             </button>
           </li>
           {Array.from({ length: totalPages }).map((_, i) => {
-            const p = i + 1
             return (
               <button
-                key={p}
-                onClick={() => goToPage(p)}
+                key={i + 1}
+                onClick={() => goToPage(i + 1)}
                 className={
-                  page === p
+                  page === i + 1
                     ? 'z-10 flex items-center justify-center px-2 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white'
                     : 'flex items-center justify-center px-2 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'
                 }
               >
-                {p}
+                {i + 1}
               </button>
             )
           })}
@@ -161,5 +143,6 @@ import { Link } from '@tanstack/react-router'
       </nav>
     </>
     )
-  }
+}
   
+export default React.memo(CharacterTable);
