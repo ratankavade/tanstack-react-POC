@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useQuery } from '@tanstack/react-query'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
 import { getCharacterById } from '../../api/charactersApi'
 import CharacterDetails from '../../components/CharacterDetails'
 
@@ -13,6 +13,8 @@ function CharacterDetailComponent() {
   const { data, isLoading, error } = useQuery({
     queryKey: ['characterId', characterId],
     queryFn: () => getCharacterById(characterId),
+    placeholderData: keepPreviousData,
+    staleTime: 60 * 1000,
   })
 
   if (isLoading) return <p>Loading character...</p>
